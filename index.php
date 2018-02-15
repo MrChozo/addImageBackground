@@ -1,11 +1,6 @@
 <?php
 // index.php
 
-// Repurposing Imagemagick code I used in another work thing.
-// Basically a Bash script, but eh.
-// Run in parent directory, ~/ in my case.
-// Also assumes all files have extension .jpg
-
 $dir = './to_convert/';
 $target = './converted/';
 $color = '#1c2d3d';
