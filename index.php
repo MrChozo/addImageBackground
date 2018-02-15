@@ -60,7 +60,7 @@ foreach ($filenames as $name) {
 	resize($name);
 
 	add_background($name);
-
-	echo "Completed successfully.\n";
-	exit;
 }
+
+echo "Completed successfully.\n";
+exit;
