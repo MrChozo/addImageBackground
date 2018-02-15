@@ -19,16 +19,13 @@ function verify_file_exists($name) {
 	}
 }
 
-function add_background() {
-	$unique = rand(0,99999);
+function add_background($name) {
 
-	$filename = "employees_" . $unique . "_" . str_replace(" ", "_",basename($_FILES['file']['name']));
-	$path = WWW_ROOT . "/img/employees/" . $filename;
-		exec("chmod 777 $path");
+	$path = WWW_ROOT . "/img/employees/" . $name;
 
 	//Create Thumbnail
 	$thumb_nail = $path . "_thumb.png";
-	$data["filename"] = '/img/employees/' . $filename . "_thumb.png";
+	$data["filename"] = '/img/employees/' . $name . "_thumb.png";
 
 	$background = $path . '_back.png';
 
@@ -41,8 +38,7 @@ function add_background() {
 	// Combine image onto background
 	exec("/usr/bin/composite -gravity center $thumb_nail $background $thumb_nail");
 
-	echo json_encode($data);
-	exit;
+	echo "Background added to: '".$name."'.";
 }
 
 // main
