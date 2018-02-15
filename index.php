@@ -1,13 +1,13 @@
 <?php
 // index.php
 
+// Repurposing Imagemagick code I used in another work thing.
 // Basically a Bash script, but eh.
 
 $dir = './to_convert/';
 $target = './converted/';
 
-$filenames = array("Picture29.jpg", "Picture30.jpg", "Picture31.png", "Picture1.jpg", "Picture2.jpg", "Picture3.jpg", "Picture4.jpg", "Picture5.jpg", "Picture6.jpg", "Picture7.jpg", "Picture8.jpg", "Picture9.jpg", "Picture10.jpg", "Picture11.jpg", "Picture12.jpg", "Picture13.jpg", "Picture14.jpg", "Picture15.jpg", "Picture16.jpg", "Picture17.jpg", "Picture18.jpg", "Picture19.jpg", "Picture20.jpg", "Picture21.jpg", "Picture22.jpg", "Picture23.jpg", "Picture24.jpg", "Picture25.jpg", "Picture26.jpg", "Picture27.jpg", "Picture28.jpg");
-
+$filenames = array("Picture29.jpg", "Picture30.jpg", "Picture31.png", "Picture1.jpg", "Picture2.jpg", "Picture3.jpg", "Picture4.jpg", "Picture5.jpg", "Picture6.jpg", "Picture7.jpg", "Picture8.jpg", "Picture9.jpg", "Picture10.jpg", "Picture11.jpg", "Picture12.jpg", "Picture13.jpg", "Picture14.jpg", "Picture15.jpg", "Picture16.jpg", "Picture17.jpg", "Picture18.jpg", "Picture19.jpg", "Picture20.jpg", "Picture21.jpg", "Picture22.jpg", "Picture23.jpg", "Picture24.jpg", "Picture25.jpg", "Picture26.jpg", "Picture27.jpg", "Picture28.jpg"); // Hurk.
 
 
 function verify_file_exists($name) {
@@ -40,10 +40,17 @@ function add_background() {
 
 	// Combine image onto background
 	exec("/usr/bin/composite -gravity center $thumb_nail $background $thumb_nail");
-		
+
 	echo json_encode($data);
 	exit;
 }
 
+// main
+foreach ($filenames as $name) {
+	verify_file_exists($name);
 
+	add_background($name);
 
+	echo "Completed successfully";
+	exit;
+}
