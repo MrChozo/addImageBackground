@@ -1,7 +1,9 @@
 <?php
+// index.php
 
+// Basically a Bash script, but eh.
 
-
+$dir = './to_convert/';
 
 function add_background()
 {
@@ -38,3 +40,6 @@ function add_background()
 	echo json_encode($data);
 	exit;
 }
+
+
+
