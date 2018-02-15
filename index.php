@@ -28,9 +28,6 @@ function resize($name) {
 	$in = $dir.$name;
 	$out = $target.$name;
 	exec("/usr/bin/convert -geometry x$height $in $out");
-
-	// Old resize. Use?
-	// exec("/usr/bin/convert $path -resize '250x250>' -background none -flatten $thumb_nail");
 }
 
 // Create solid background, then composite image onto it
@@ -57,7 +54,7 @@ function add_background($name) {
 foreach ($filenames as $name) {
 	verify_file($name);
 
-	resize($name, $height);
+	resize($name);
 
 	add_background($name);
 
